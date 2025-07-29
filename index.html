@@ -3,42 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Redirecting to UPI App...</title>
-  <script>
-    // UPI payment link
-    const upiLink = "upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation";
-
-    // Try to redirect on page load
-    window.onload = () => {
-      window.location.href = upiLink;
-
-      // Fallback after 5s if UPI app doesn't open
-      setTimeout(() => {
-        document.getElementById("fallback").style.display = "block";
-      }, 5000);
-    };
-  </script>
+  <title>Select UPI App</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 50px;
+      padding: 30px;
     }
-    #fallback {
-      display: none;
+    h2 {
+      color: #333;
     }
+    .app-button {
+      margin: 10px;
+      display: block;
+      padding: 12px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      color: white;
+      border-radius: 6px;
+      width: 80%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .gpay { background-color: #4285F4; }
+    .phonepe { background-color: #6A1B9A; }
+    .paytm { background-color: #0033cc; }
+    .whatsapp { background-color: #25D366; }
   </style>
 </head>
 <body>
-  <h2>🔁 Redirecting to your UPI app...</h2>
-  <p>If nothing happens, click the button below:</p>
-  <a href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation">
-    <button style="padding: 10px 20px; font-size: 16px;">💳 Pay ₹999 via UPI</button>
+  <h2>💳 Pay ₹999 - Choose Your UPI App</h2>
+  <p>Tap on the UPI app you prefer:</p>
+
+  <!-- GPay -->
+  <a href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button gpay">
+    Google Pay (GPay)
   </a>
 
-  <div id="fallback">
-    <p>❗ If your UPI app didn't open, click the button above or scan this QR in your app.</p>
-    <img src="your-qr-code-url-here" alt="UPI QR" width="200"/>
-  </div>
+  <!-- PhonePe -->
+  <a href="phonepe://upi/pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button phonepe">
+    PhonePe
+  </a>
+
+  <!-- Paytm -->
+  <a href="paytmmp://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button paytm">
+    Paytm
+  </a>
+
+  <!-- WhatsApp (fallback to UPI URI) -->
+  <a href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button whatsapp">
+    WhatsApp / Other UPI Apps
+  </a>
+
+  <p style="margin-top: 20px;">Having issues? Use UPI ID: <b>8287978793@ptyes</b></p>
 </body>
 </html>
