@@ -3,59 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Select UPI App</title>
+  <title>Pay ₹999 - Select UPI App</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
+      margin: 0;
+      background: #f2f2f2;
     }
+
+    .sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
     h2 {
-      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 18px;
     }
-    .app-button {
-      margin: 10px;
+
+    .btn {
       display: block;
-      padding: 12px 20px;
+      margin: 10px auto;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
       font-size: 16px;
-      text-decoration: none;
+      width: 90%;
       color: white;
-      border-radius: 6px;
-      width: 80%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
     }
-    .gpay { background-color: #4285F4; }
-    .phonepe { background-color: #6A1B9A; }
-    .paytm { background-color: #0033cc; }
-    .whatsapp { background-color: #25D366; }
+
+    .gpay { background: #4285F4; }
+    .phonepe { background: #6823FD; }
+    .paytm { background: #002970; }
+    .whatsapp { background: #25D366; }
+
+    .fallback {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <h2>💳 Pay ₹999 - Choose Your UPI App</h2>
-  <p>Tap on the UPI app you prefer:</p>
 
-  <!-- GPay -->
-  <a href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button gpay">
-    Google Pay (GPay)
-  </a>
+  <div class="sheet">
+    <h2>💳 Pay ₹999 - Choose Your UPI App</h2>
 
-  <!-- PhonePe -->
-  <a href="phonepe://upi/pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button phonepe">
-    PhonePe
-  </a>
+    <a class="btn gpay" href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation">Google Pay (GPay)</a>
+    <a class="btn phonepe" href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation">PhonePe</a>
+    <a class="btn paytm" href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation">Paytm</a>
+    <a class="btn whatsapp" href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation">WhatsApp / Other</a>
 
-  <!-- Paytm -->
-  <a href="paytmmp://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button paytm">
-    Paytm
-  </a>
+    <div class="fallback">
+      Having issues? Use UPI ID:<br><b>8287978793@ptyes</b>
+    </div>
+  </div>
 
-  <!-- WhatsApp (fallback to UPI URI) -->
-  <a href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation" class="app-button whatsapp">
-    WhatsApp / Other UPI Apps
-  </a>
-
-  <p style="margin-top: 20px;">Having issues? Use UPI ID: <b>8287978793@ptyes</b></p>
 </body>
 </html>
