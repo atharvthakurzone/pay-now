@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecting to UPI App...</title>
+  <script>
+    // UPI payment link
+    const upiLink = "upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation";
+
+    // Try to redirect on page load
+    window.onload = () => {
+      window.location.href = upiLink;
+
+      // Fallback after 5s if UPI app doesn't open
+      setTimeout(() => {
+        document.getElementById("fallback").style.display = "block";
+      }, 5000);
+    };
+  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #fallback {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔁 Redirecting to your UPI app...</h2>
+  <p>If nothing happens, click the button below:</p>
+  <a href="upi://pay?pa=8287978793@ptyes&pn=DeepJadaun&am=999&cu=INR&tn=Account+Activation">
+    <button style="padding: 10px 20px; font-size: 16px;">💳 Pay ₹999 via UPI</button>
+  </a>
+
+  <div id="fallback">
+    <p>❗ If your UPI app didn't open, click the button above or scan this QR in your app.</p>
+    <img src="your-qr-code-url-here" alt="UPI QR" width="200"/>
+  </div>
+</body>
+</html>
